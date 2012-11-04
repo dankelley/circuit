@@ -1,6 +1,6 @@
 resistor <- function(x0, y0,
-                     wirelength=0.1,   # length of wires plus component
-                     length=0.15,      # ziz-zag length
+                     wirelength=0.2,   # length of wires plus component
+                     length=0.05,      # ziz-zag length
                      width=length/(3 * 2 * sqrt(2)),   # zig-width width
                      horizontal=TRUE,
                      points=FALSE,

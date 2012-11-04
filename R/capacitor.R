@@ -1,7 +1,7 @@
 capacitor <- function(x0, y0,
-                      wirelength=0.1,  # includes wires
-                      length=0.015,    # plate-plate distance
-                      width=length*4,  # plate length
+                      wirelength=0.2,  # includes wires
+                      length=0.008,    # plate-plate distance
+                      width=length*5,  # plate length
                       horizontal=TRUE,
                       points=FALSE,
                       col=par('col'),

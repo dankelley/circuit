@@ -1,29 +1,26 @@
-\name{resistor}
+\name{wire}
 
-\alias{resistor}
+\alias{wire}
 
-\title{Draw a resistor}
+\title{Draw a wire}
 
-\description{Draw a resistor}
+\description{Draw a wire}
 
 \usage{
-resistor(x0, y0,
-          wirelength=0.2, 
-          length=0.05,
-          width=length/(3 * 2 * sqrt(2)),  
-          horizontal=TRUE,
-          points=FALSE,
-          col=par('col'),
-          lwd=par('lwd'),
-          cex=par('cex'))
+wire(x0, y0,
+     wirelength=0.1, 
+     horizontal=TRUE,
+     points=FALSE,
+     col=par('col'),
+     lwd=par('lwd'),
+     cex=par('cex'))
+
 }
 
 \arguments{
     \item{x0}{starting x coordinate of element}
     \item{y0}{starting y coordinate of element}
     \item{wirelength}{length of wire plus element}
-    \item{length}{length of zig-zag}
-    \item{width}{width of zig-zag}
     \item{horizontal}{boolean indicating whether the wire is drawn horizontally}
     \item{points}{booline indicating whether to draw dots at the ends of the wire}
     \item{col}{colour}
@@ -40,8 +37,9 @@ resistor(x0, y0,
 \examples{
 library(circuit)
 circuit()
-resistor(.5, .3, .5, horizontal=FALSE)
-resistor(.2, .2, .5, horizontal=TRUE)
+resistor(0.1, 0.5)
+capacitor(0.5, 0.1)
+wire(0.5, 0.5)
 }
 
 \author{Dan Kelley}

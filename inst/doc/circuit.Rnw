@@ -51,22 +51,24 @@ The \verb@circuit@ package \dots
 
 \section{Introduction}
 
-<<label=capacitorplot,eval=FALSE>>=
+<<label=lowpassplot,eval=FALSE>>=
 library(circuit)
 circuit()
-capacitor(.5, .3, .5, horizontal=FALSE)
-capacitor(.2, .2, .5, horizontal=TRUE)
+resistor(0.1,0.5,0.2)
+capacitor(.3,.3,.2,horizontal=FALSE)
+wire(.3,.5,.2)
+ground(.3,.3)
 @
 
 \begin{figure}
     \begin{center}
-        \setkeys{Gin}{width=0.55\textwidth}
-<<label=capacitorfig,fig=TRUE,width=6, height=4, echo=FALSE>>=
-<<capacitorplot>>
+        \setkeys{Gin}{width=\textwidth}
+<<label=lowpassfig, fig=TRUE, echo=FALSE>>=
+<<lowpassplot>>
 @
     \end{center}
-    \caption{Capacitor plot.}
-    \label{fig:capacitor}
+    \caption{Low-pass RC filter.}
+    \label{fig:lowpass}
 \end{figure}
 \printindex
 \end{document}

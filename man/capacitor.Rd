@@ -8,9 +8,9 @@
 
 \usage{
 capacitor(x0, y0,
-          wirelength=0.1, 
-          length=0.015,
-          width=length*4,  
+          wirelength=0.2, 
+          length=0.008,
+          width=length*5,  
           horizontal=TRUE,
           points=FALSE,
           col=par('col'),
