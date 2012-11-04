@@ -1,0 +1,13 @@
+Package: circuit
+Version: 0.1-1
+Date: 2012-11-04
+Title: drawing circuit diagrams
+Author: Dan Kelley <Dan.Kelley@Dal.Ca>
+Maintainer: Dan Kelley <Dan.Kelley@Dal.Ca>
+Depends: R (>= 2.15)
+BugReports: https://github.com/dankelley/circuit/issues?sort=created&direction=desc&state=open
+Description: Rudimentary support for drawing circuit diagrams.
+License: GPL (>= 2)
+URL: http://dankelley.github.com/circuit/
+LazyLoad: yes
+Packaged: Dan Kelley
