@@ -12,6 +12,7 @@ resistor(x0, y0,
           length=0.05,
           width=length/(3 * 2 * sqrt(2)),  
           horizontal=TRUE,
+          label, pos,
           points=FALSE,
           col=par('col'),
           lwd=par('lwd'),
@@ -25,6 +26,10 @@ resistor(x0, y0,
     \item{length}{length of zig-zag}
     \item{width}{width of zig-zag}
     \item{horizontal}{boolean indicating whether the wire is drawn horizontally}
+    \item{label}{optional string placed near component (see \code{pos})}
+    \item{pos}{position of \code{label}: 0 for below a horizontal
+        component, or to the left of a vertical one, and 1 for
+        the opposite}
     \item{points}{booline indicating whether to draw dots at the ends of the wire}
     \item{col}{colour}
     \item{lwd}{line width}
@@ -40,8 +45,10 @@ resistor(x0, y0,
 \examples{
 library(circuit)
 circuit()
-resistor(.5, .3, .5, horizontal=FALSE)
-resistor(.2, .2, .5, horizontal=TRUE)
+resistor(0.1, 0.5, 0.3, label="10k")
+capacitor(0.4, 0.2, 0.3, label='10uF', horizontal=FALSE)
+wire(0.4, 0.5, 0.3)
+ground(0.4, 0.2)
 }
 
 \author{Dan Kelley}

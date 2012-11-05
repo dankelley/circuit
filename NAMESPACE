@@ -1,2 +1,2 @@
-export(circuit, capacitor, ground, resistor, wire)
+export(circuit, capacitor, ground, label, resistor, wire)
 

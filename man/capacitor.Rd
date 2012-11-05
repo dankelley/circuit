@@ -12,6 +12,7 @@ capacitor(x0, y0,
           length=0.008,
           width=length*5,  
           horizontal=TRUE,
+          label, pos,
           points=FALSE,
           col=par('col'),
           lwd=par('lwd'),
@@ -26,6 +27,10 @@ capacitor(x0, y0,
     \item{length}{distance between capactor plates}
     \item{width}{length of plates}
     \item{horizontal}{boolean indicating whether the wire is drawn horizontally}
+    \item{label}{optional string placed near component (see \code{pos})}
+    \item{pos}{optional position of \code{label}, as for
+        \code{\link{par}(pos)}; defaults to 1 if \code{horizontal=TRUE}, or 2
+        otherwise.}
     \item{points}{booline indicating whether to draw dots at the ends of the wire}
     \item{col}{colour}
     \item{lwd}{line width}
@@ -41,8 +46,10 @@ capacitor(x0, y0,
 \examples{
 library(circuit)
 circuit()
-capacitor(.5, .3, .5, horizontal=FALSE)
-capacitor(.2, .2, .5, horizontal=TRUE)
+resistor(0.1, 0.5, 0.3, label="10k")
+capacitor(0.4, 0.2, 0.3, label='10uF', horizontal=FALSE)
+wire(0.4, 0.5, 0.3)
+ground(0.4, 0.2)
 }
 
 \author{Dan Kelley}

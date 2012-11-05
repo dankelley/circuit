@@ -37,9 +37,10 @@ wire(x0, y0,
 \examples{
 library(circuit)
 circuit()
-resistor(0.1, 0.5)
-capacitor(0.5, 0.1)
-wire(0.5, 0.5)
+resistor(0.1, 0.5, 0.3, label="10k")
+capacitor(0.4, 0.2, 0.3, label='10uF', horizontal=FALSE)
+wire(0.4, 0.5, 0.3)
+ground(0.4, 0.2)
 }
 
 \author{Dan Kelley}

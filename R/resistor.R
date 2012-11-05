@@ -3,6 +3,7 @@ resistor <- function(x0, y0,
                      length=0.05,      # ziz-zag length
                      width=length/(3 * 2 * sqrt(2)),   # zig-width width
                      horizontal=TRUE,
+                     label, pos,
                      points=FALSE,
                      col=par('col'),
                      lwd=par('lwd'),
@@ -21,6 +22,12 @@ resistor <- function(x0, y0,
             points(x0, y0, pch=20, col=col)
             points(x0+wirelength, y0, pch=20, col=col)
         }
+        if (!missing(label)) {
+            if (missing(pos)) pos <- 1
+            if (pos == 1) label(x0 + wirelength / 2, y0 - width/2, label, pos=pos, col=col, cex=cex)
+            else if (pos == 3) label(x0 + wirelength / 2, y0 + width/4, label, pos=pos, col=col, cex=cex)
+            else label(x0 + wirelength / 2, y0 - width/2, label, pos=pos, col=col, cex=cex)
+        }
     } else {
         bot <- y0 + wirelength / 2 - length / 2
         top <- y0 + wirelength / 2 + length / 2
@@ -33,6 +40,12 @@ resistor <- function(x0, y0,
         if (points) {
             points(x0, y0, pch=20, col=col, cex=cex)
             points(x0, y0+wirelength, pch=20, col=col, cex=cex)
+        }
+        if (!missing(label)) {
+            if (missing(pos)) pos <- 2
+            if (pos == 2) label(x0 - width/4, y0 + wirelength/2, label, pos=pos, col=col, cex=cex)
+            else if (pos == 4) label(x0 + width/2, y0 + wirelength/2, label, pos=pos, col=col, cex=cex)
+            else label(x0 - width / 2, y0 + wirelength/2, label, pos=pos, col=col, cex=cex)
         }
     }
 }
