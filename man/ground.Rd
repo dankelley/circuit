@@ -7,7 +7,7 @@
 \description{Draw a ground}
 
 \usage{ground(x0, y0,
-    length=0.02,
+    length=0.04,
     col=par('col'),
     lwd=par('lwd'))
 }

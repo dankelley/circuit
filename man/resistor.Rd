@@ -9,7 +9,7 @@
 \usage{
 resistor(x0, y0,
           wirelength=0.2, 
-          length=0.05,
+          length=0.08,
           width=length/(3 * 2 * sqrt(2)),  
           horizontal=TRUE,
           label, pos,

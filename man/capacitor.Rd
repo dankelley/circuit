@@ -9,7 +9,7 @@
 \usage{
 capacitor(x0, y0,
           wirelength=0.2, 
-          length=0.008,
+          length=0.01,
           width=length*5,  
           horizontal=TRUE,
           label, pos,

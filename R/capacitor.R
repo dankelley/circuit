@@ -1,6 +1,6 @@
 capacitor <- function(x0, y0,
                       wirelength=0.2,  # includes wires
-                      length=0.008,    # plate-plate distance
+                      length=0.01,     # plate-plate distance
                       width=length*5,  # plate length
                       horizontal=TRUE,
                       label, pos,
@@ -16,8 +16,8 @@ capacitor <- function(x0, y0,
         top <- y0 + width / 2
         segments(x0, y0, lhs, y0, col=col, lwd=lwd) # wire to component
         segments(rhs, y0, x0+wirelength, y0, col=col, lwd=lwd) # component to wire
-        segments(lhs, bot, lhs, top, col=col, lwd=lwd) # component: plate 1
-        segments(rhs, bot, rhs, top, col=col, lwd=lwd) # component: plate 2
+        segments(lhs, bot, lhs, top, col=col, lwd=2*lwd) # component: plate 1
+        segments(rhs, bot, rhs, top, col=col, lwd=2*lwd) # component: plate 2
         if (points) {
             points(x0, y0, pch=20, col=col)
             points(x0+wirelength, y0, pch=20, col=col)
@@ -35,17 +35,24 @@ capacitor <- function(x0, y0,
         top <- y0 + wirelength / 2 + length / 2
         segments(x0, y0, x0, bot, col=col, lwd=lwd)
         segments(x0, top, x0, y0+wirelength, col=col, lwd=lwd)
-        segments(lhs, bot, rhs, bot, col=col, lwd=lwd)
-        segments(lhs, top, rhs, top, col=col, lwd=lwd)
+        segments(lhs, bot, rhs, bot, col=col, lwd=2*lwd)
+        segments(lhs, top, rhs, top, col=col, lwd=2*lwd)
         if (points) {
             points(x0, y0, pch=20, col=col, cex=cex)
             points(x0, y0+wirelength, pch=20, col=col, cex=cex)
         }
         if (!missing(label)) {
             if (missing(pos)) pos <- 2
-            if (pos == 2) label(x0 - width/4, y0 + wirelength/2, label, pos=pos, col=col, cex=cex)
-            else if (pos == 4) label(x0 + width/2, y0 + wirelength/2, label, pos=pos, col=col, cex=cex)
-            else label(x0 - width / 2, y0 + wirelength/2, label, pos=pos, col=col, cex=cex)
+            dy <- par('cin')[2] / par('fin')[2] / 4
+            if (pos == 2)
+                label(x0 - width/4, y0 + wirelength/2 - dy,
+                      label, pos=pos, col=col, cex=cex)
+            else if (pos == 4)
+                label(x0 + width/2, y0 + wirelength/2 - dy,
+                      label, pos=pos, col=col, cex=cex)
+            else
+                label(x0 - width / 2, y0 + wirelength/2,
+                      label, pos=pos, col=col, cex=cex)
         }
     }
 }
