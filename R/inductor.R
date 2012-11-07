@@ -1,7 +1,7 @@
-resistor <- function(x0, y0,
+inductor <- function(x0, y0,
                      wirelength=0.2,   # length of wires plus component
-                     length=0.08,      # zig-zag length
-                     width=length/(3 * 2 * sqrt(2)),   # zig-width width
+                     length=0.08,      # coil length
+                     width=length/4,   # coil width
                      horizontal=TRUE,
                      label, pos,
                      points=FALSE,
@@ -14,10 +14,11 @@ resistor <- function(x0, y0,
         rhs <- x0 + wirelength / 2 + length / 2
         segments(x0, y0, lhs, y0, col=col, lwd=lwd) # wire to component
         segments(rhs, y0, x0+wirelength, y0, col=col, lwd=lwd) # component to wire
-        nzigzag <- round(length / width / (2 * sqrt(2)))
-        zigzagx <- seq(0, length, length.out=5*nzigzag)
-        zigzagy <- rep(c(0, width, 0, -width), length.out=5*nzigzag)
-        lines(lhs + zigzagx, y0 + zigzagy, lwd=2*lwd)
+        ncoil <- 1.5
+        coilx <- seq(0, length, length.out=ncoil*20)
+        coily <- width * abs(sin(2 * pi * coilx * ncoil / length))
+        lines(lhs + coilx, y0 + coily, lwd=2*lwd)
+        #browser()
         if (points) {
             points(x0, y0, pch=20, col=col)
             points(x0+wirelength, y0, pch=20, col=col)
@@ -33,10 +34,10 @@ resistor <- function(x0, y0,
         top <- y0 + wirelength / 2 + length / 2
         segments(x0, y0, x0, bot, col=col, lwd=lwd) # wire to component
         segments(x0, top, x0, y0+wirelength, col=col, lwd=lwd) # comp to wire
-        nzigzag <- round(length / width / (2 * sqrt(2)))
-        zigzagx <- rep(c(0, width, 0, -width), length.out=5*nzigzag)
-        zigzagy <- seq(0, length, length.out=5*nzigzag)
-        lines(x0 + zigzagx, bot + zigzagy, lwd=2*lwd)
+        ncoil <- 1.5
+        coily <- seq(0, length, length.out=ncoil*50)
+        coilx <- width * abs(sin(2 * pi * coily * ncoil / length))
+        lines(x0 + coilx, bot + coily, lwd=2*lwd)
         if (points) {
             points(x0, y0, pch=20, col=col, cex=cex)
             points(x0, y0+wirelength, pch=20, col=col, cex=cex)
