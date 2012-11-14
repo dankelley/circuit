@@ -7,21 +7,14 @@
 \description{Draw a wire}
 
 \usage{
-wire(x0, y0,
-     wirelength=0.1, 
-     horizontal=TRUE,
+wire(x0, y0, x1, y1,
      points=FALSE,
-     col=par('col'),
-     lwd=par('lwd'),
-     cex=par('cex'))
-
+     col=par('col'), lwd=par('lwd'), cex=par('cex'))
 }
 
 \arguments{
-    \item{x0}{starting x coordinate of element}
-    \item{y0}{starting y coordinate of element}
-    \item{wirelength}{length of wire plus element}
-    \item{horizontal}{boolean indicating whether the wire is drawn horizontally}
+    \item{x0,y0}{starting coordinate of element}
+    \item{x1,y1}{ending coordinate of element}
     \item{points}{booline indicating whether to draw dots at the ends of the wire}
     \item{col}{colour}
     \item{lwd}{line width}
@@ -37,9 +30,9 @@ wire(x0, y0,
 \examples{
 library(circuit)
 circuit()
-resistor(0.1, 0.5, 0.3, label="10k")
-capacitor(0.4, 0.2, 0.3, label='10uF', horizontal=FALSE)
-wire(0.4, 0.5, 0.3)
+resistor(0.1, 0.5, 0.4, 0.5, label="10k")
+capacitor(0.4, 0.2, 0.4, 0.5, label='10uF')
+wire(0.4, 0.5, 0.7, 0.5)
 ground(0.4, 0.2)
 }
 

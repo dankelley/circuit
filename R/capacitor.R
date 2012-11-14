@@ -1,14 +1,15 @@
-capacitor <- function(x0, y0,
-                      wirelength=0.2,  # includes wires
-                      length=0.01,     # plate-plate distance
-                      width=length*5,  # plate length
-                      horizontal=TRUE,
-                      label, pos,
+capacitor <- function(x0, y0, x1, y1,
                       points=FALSE,
-                      col=par('col'),
-                      lwd=par('lwd'),
-                      cex=par('cex'))
+                      length=0.01, width=length*5,
+                      label, pos,
+                      col=par('col'), lwd=par('lwd'), cex=par('cex'))
 {
+    if (missing(x0)) stop("must provide x0")
+    if (missing(y0)) stop("must provide y0")
+    if (missing(x1)) stop("must provide x1")
+    if (missing(y1)) stop("must provide y1")
+    horizontal <- y0 == y1         # FIXME rounding issues?
+    wirelength <- if (horizontal) x1 - x0 else y1 - y0
     if (horizontal) {
         lhs <- x0 + wirelength / 2 - length / 2
         rhs <- x0 + wirelength / 2 + length / 2

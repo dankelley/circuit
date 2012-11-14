@@ -53,11 +53,11 @@ The \verb@circuit@ package \dots
 
 <<label=lowpassplot,eval=FALSE>>=
 library(circuit)
-circuit(T)
-resistor(0.1, 0.5, 0.3, label="10kohm")
+circuit()
+resistor(0.1, 0.5, 0.4, 0.5, label="10kohm")
 label(0.1, 0.5, expression(V[i]), pos=2)
-capacitor(0.4, 0.2, 0.3, label='100uF', horizontal=FALSE)
-wire(0.4, 0.5, 0.3)
+capacitor(0.4, 0.2, 0.4, 0.5, label='100uF')
+wire(0.4, 0.5, 0.7, 0.5)
 label(0.7, 0.5, expression(V[o]), pos=4)
 ground(0.4, 0.2)
 junction(0.4, 0.5)

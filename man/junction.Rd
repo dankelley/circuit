@@ -30,9 +30,9 @@ to e.g. \code{\link{resistor}}.}
 \examples{
 library(circuit)
 circuit()
-resistor(0.1, 0.5, 0.3, label="10k")
-capacitor(0.4, 0.2, 0.3, label='10uF', horizontal=FALSE)
-wire(0.4, 0.5, 0.3)
+resistor(0.1, 0.5, 0.4, 0.5, label="10k")
+capacitor(0.4, 0.2, 0.4, 0.5, label='10uF')
+wire(0.4, 0.5, 0.7, 0.5)
 ground(0.4, 0.2)
 junction(0.4, 0.5)
 }

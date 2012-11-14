@@ -1,23 +1,15 @@
-wire <- function(x0, y0,
-                 wirelength=0.1,
-                 horizontal=TRUE,
+wire <- function(x0, y0, x1, y1,
                  points=FALSE,
-                 col=par('col'),
-                 lwd=par('lwd'),
-                 cex=par('cex'))
+                 col=par('col'), lwd=par('lwd'), cex=par('cex'))
 {
-    if (horizontal) {
-        segments(x0, y0, x0 + wirelength, y0, col=col, lwd=lwd)
-        if (points) {
-            points(x0, y0, pch=20, col=col)
-            points(x0+wirelength, y0, pch=20, col=col)
-        }
-    } else {
-        segments(x0, y0, x0, y0 + wirelength,  col=col, lwd=lwd)
-        if (points) {
-            points(x0, y0, pch=20, col=col)
-            points(x0, y0 + wirelength, pch=20, col=col)
-        }
+    if (missing(x0)) stop("must provide x0")
+    if (missing(y0)) stop("must provide y0")
+    if (missing(x1)) stop("must provide x1")
+    if (missing(y1)) stop("must provide y1")
+    segments(x0, y0, x1, y1, col=col, lwd=lwd)
+    if (points) {
+        points(x0, y0, pch=20, col=col)
+        points(x1, y1, pch=20, col=col)
     }
 }
 

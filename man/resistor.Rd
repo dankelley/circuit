@@ -7,25 +7,18 @@
 \description{Draw a resistor}
 
 \usage{
-resistor(x0, y0,
-          wirelength=0.2, 
-          length=0.08,
-          width=length/(3 * 2 * sqrt(2)),  
-          horizontal=TRUE,
-          label, pos,
+resistor(x0, y0, x1, y1,
           points=FALSE,
-          col=par('col'),
-          lwd=par('lwd'),
-          cex=par('cex'))
+          length=0.08, width=length/(3 * 2 * sqrt(2)),  
+          label, pos,
+          col=par('col'), lwd=par('lwd'), cex=par('cex'))
 }
 
 \arguments{
-    \item{x0}{starting x coordinate of element}
-    \item{y0}{starting y coordinate of element}
-    \item{wirelength}{length of wire plus element}
+    \item{x0,y0}{starting coordinate of element}
+    \item{x1,y1}{ending coordinate of element}
     \item{length}{length of zig-zag}
     \item{width}{width of zig-zag}
-    \item{horizontal}{boolean indicating whether the wire is drawn horizontally}
     \item{label}{optional string placed near component (see \code{pos})}
     \item{pos}{position of \code{label}: 0 for below a horizontal
         component, or to the left of a vertical one, and 1 for
@@ -45,9 +38,9 @@ resistor(x0, y0,
 \examples{
 library(circuit)
 circuit()
-resistor(0.1, 0.5, 0.3, label="10k")
-capacitor(0.4, 0.2, 0.3, label='10uF', horizontal=FALSE)
-wire(0.4, 0.5, 0.3)
+resistor(0.1, 0.5, 0.4, 0.5, label="10k")
+capacitor(0.4, 0.2, 0.4, 0.5, label='10uF')
+wire(0.4, 0.5, 0.7, 0.5)
 ground(0.4, 0.2)
 }
 

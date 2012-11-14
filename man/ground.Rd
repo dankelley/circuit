@@ -29,10 +29,10 @@
 \examples{
 library(circuit)
 circuit()
-resistor(0.1,0.5,0.2)
-capacitor(.3,.3,.2,horizontal=FALSE)
-wire(.3,.5,.2)
-ground(.3,.3)
+resistor(0.1, 0.5, 0.3, 0.5)
+capacitor(0.3, 0.3, 0.3, 0.5)
+wire(0.3, 0.5, 0.5, 0.5)
+ground(0.3, 0.3)
 }
 
 \author{Dan Kelley}

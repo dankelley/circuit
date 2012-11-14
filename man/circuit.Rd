@@ -21,8 +21,8 @@
 \examples{
 library(circuit)
 circuit()
-resistor(.1, .5, .3, label="10k")
-capacitor(.4, .2, .3, horizontal=FALSE, label="10mF")
+resistor(0.1, 0.5, 0.4, 0.5, label="10k")
+capacitor(0.4, 0.2, 0.7, 0.2, label="10mF")
 }
 
 \author{Dan Kelley}

@@ -7,30 +7,23 @@
 \description{Draw an inductor}
 
 \usage{
-inductor(x0, y0,
-         wirelength=0.2, 
-         length=0.08,
-         width=length/4,  
-         horizontal=TRUE,
-         label, pos,
+inductor(x0, y0, x1, y1, 
          points=FALSE,
-         col=par('col'),
-         lwd=par('lwd'),
-         cex=par('cex'))
+         length=0.08, width=length/4,  
+         label, pos,
+         col=par('col'), lwd=par('lwd'), cex=par('cex'))
 }
 
 \arguments{
-    \item{x0}{starting x coordinate of element}
-    \item{y0}{starting y coordinate of element}
-    \item{wirelength}{length of wire plus element}
+    \item{x0,y0}{starting coordinate of element}
+    \item{x1,y1}{ending coordinate of element}
+    \item{points}{boolean indicating whether to draw dots at the ends of the wire}
     \item{length}{length of zig-zag}
     \item{width}{width of zig-zag}
-    \item{horizontal}{boolean indicating whether the wire is drawn horizontally}
     \item{label}{optional string placed near component (see \code{pos})}
     \item{pos}{position of \code{label}: 0 for below a horizontal
         component, or to the left of a vertical one, and 1 for
         the opposite}
-    \item{points}{booline indicating whether to draw dots at the ends of the wire}
     \item{col}{colour}
     \item{lwd}{line width}
     \item{cex}{size of points (ignored unless \code{points} is \code{TRUE})}
@@ -45,9 +38,9 @@ inductor(x0, y0,
 \examples{
 library(circuit)
 circuit()
-resistor(0.1, 0.5, 0.3, label="10kohm")
-inductor(0.4, 0.2, 0.3, label="10uH", horizontal=FALSE)
-wire(0.4, 0.5, 0.3)
+resistor(0.1, 0.5, 0.4, 0.5, label="10kohm")
+inductor(0.4, 0.2, 0.4, 0.5, label="10uH")
+wire(0.4, 0.5, 0.7, 0.5)
 ground(0.4, 0.2)
 }
 

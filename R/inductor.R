@@ -1,14 +1,15 @@
-inductor <- function(x0, y0,
-                     wirelength=0.2,   # length of wires plus component
-                     length=0.08,      # coil length
-                     width=length/4,   # coil width
-                     horizontal=TRUE,
-                     label, pos,
+inductor <- function(x0, y0, x1, y1,
                      points=FALSE,
-                     col=par('col'),
-                     lwd=par('lwd'),
-                     cex=par('cex'))
+                     length=0.08, width=length/4,
+                     label, pos,
+                     col=par('col'), lwd=par('lwd'), cex=par('cex'))
 {
+    if (missing(x0)) stop("must provide x0")
+    if (missing(y0)) stop("must provide y0")
+    if (missing(x1)) stop("must provide x1")
+    if (missing(y1)) stop("must provide y1")
+    horizontal <- y0 == y1         # FIXME rounding issues?
+    wirelength <- if (horizontal) x1 - x0 else y1 - y0
     if (horizontal) {
         lhs <- x0 + wirelength / 2 - length / 2
         rhs <- x0 + wirelength / 2 + length / 2
