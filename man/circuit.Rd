@@ -2,10 +2,12 @@
 \alias{circuit}
 \title{Initialize a circuit plot}
 \description{Initialize a circuit plot}
-\usage{circuit(grid=FALSE, mar=rep(2, 4))}
+\usage{circuit(xlim=c(0,1), ylim=c(0, 1), axes=FALSE, mar=rep(2, 4))}
 
 \arguments{
-    \item{grid}{draw a grid and axes}
+    \item{xlim}{limits of x axis}
+    \item{ylim}{limits of y axis}
+    \item{axes}{draw a grid and axes}
     \item{mar}{margins used in \code{par(mar)}}
 }
 
