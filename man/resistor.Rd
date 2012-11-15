@@ -31,7 +31,7 @@ resistor(x0, y0, x1, y1,
 
 \details{The coordinate system has both x and y ranging from 0 to 1.}
 
-\value{None.}
+\value{Vector containing \code{x0, y0, x1, y1}.}
 
 \seealso{The plot must first be set up with \code{\link{circuit}}.}
 

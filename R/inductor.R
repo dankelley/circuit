@@ -57,5 +57,6 @@ inductor <- function(x0, y0, x1, y1,
                       label, pos=pos, col=col, cex=cex)
         }
     }
+    c(x0, y0, x1, y1)
 }
 
