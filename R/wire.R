@@ -11,6 +11,6 @@ wire <- function(x0, y0, x1, y1,
         points(x0, y0, pch=20, col=col)
         points(x1, y1, pch=20, col=col)
     }
-    c(x0, y0, x1, y1)
+    invisible(c(x0, y0, x1, y1))
 }
 
