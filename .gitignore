@@ -1,2 +1,4 @@
 .R*
 *.swp
+.Rproj.user
+circuit.Rproj
